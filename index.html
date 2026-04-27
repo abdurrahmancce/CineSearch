@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineSearch — Find Your Film</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Cinematic film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+
+    <!-- ══ HEADER ══ -->
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">Cine<em>Search</em></span>
+      </div>
+      <p class="tagline">A universe of films, one search away</p>
+    </header>
+
+    <!-- ══ SEARCH BAR ══ -->
+    <section class="search-section">
+      <form class="search-form" id="searchForm">
+
+        <div class="input-wrap">
+          <!-- Search icon -->
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="16.5" y1="16.5" x2="22" y2="22" />
+          </svg>
+
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search any movie… e.g. Inception, Batman, Avatar"
+            autocomplete="off"
+            spellcheck="false"
+          />
+
+          <!-- Clear button (shown/hidden by JS) -->
+          <button type="button" class="clear-btn" id="clearBtn" hidden>✕</button>
+        </div>
+
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </section>
+
+    <!-- ══ MAIN CONTENT ══ -->
+    <main class="content-area">
+
+      <!-- Default state shown before any search -->
+      <div class="hero-state" id="heroState">
+        <div class="hero-icon">🎬</div>
+        <h2 class="hero-title">Your next favourite film is waiting</h2>
+        <p class="hero-sub">Type a movie name above and press <kbd>Enter</kbd> to begin.</p>
+        <div class="genre-pills" aria-hidden="true">
+          <span>Action</span><span>Drama</span><span>Sci-Fi</span>
+          <span>Comedy</span><span>Horror</span><span>Thriller</span>
+        </div>
+      </div>
+
+      <!-- Loading spinner (JS toggles hidden) -->
+      <div class="loader-wrap" id="loader" hidden>
+        <div class="spinner">
+          <div class="reel"></div>
+          <div class="reel reel--2"></div>
+          <div class="reel reel--3"></div>
+        </div>
+        <p class="loader-text">Searching films…</p>
+      </div>
+
+      <!-- Error state (JS toggles hidden) -->
+      <div class="error-state" id="errorState" hidden>
+        <span class="error-icon">🎞️</span>
+        <h3 class="error-title">No results found</h3>
+        <p class="error-sub" id="errorMsg">Try a different title or check your spelling.</p>
+      </div>
+
+      <!-- Movie cards are injected here by script.js -->
+      <section class="results-grid" id="resultsGrid" hidden></section>
+
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="site-footer">
+      <p>
+        Powered by <a href="https://www.wikipedia.org/" target="_blank" rel="noopener">Wikipedia Open API</a>
+        &nbsp;·&nbsp; No API key needed · Built with ♥ for film lovers
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
