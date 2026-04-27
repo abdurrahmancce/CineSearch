@@ -9,7 +9,7 @@ CineSearch is a modern and responsive movie search application built using **HTM
 ---
 
 ## 🚀 Live Demo
-🔗 https://your-live-link-here.com
+🔗 [https://your-live-link-here.com](https://abdurrahmancce.github.io/CineSearch/)
 
 ---
 
